@@ -3,9 +3,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## About
-Logz theme is a Jekyll theme for GitHub Pages based on the Hacker theme
-
 ## Usage
 
 To use the Logz theme:
