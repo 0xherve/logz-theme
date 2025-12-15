@@ -1,18 +1,38 @@
+name: CI
+
 on:
   push:
+    branches: [ main, master ]
   pull_request:
-    types: [opened, synchronize]
+    branches: [ main, master ]
+
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    name: script/cibuild
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.2
-          bundler-cache: true
-      - name: build
-        run: script/bootstrap
-      - name: test
-        run: script/cibuild
+    - uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
+
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+
+    - name: Build site
+      run: bundle exec jekyll build
+
+    - name: Test site
+      run: bundle exec htmlproofer ./_site --disable-external --check-html --check-img-http
