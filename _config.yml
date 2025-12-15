@@ -1,5 +1,5 @@
-title: Hacker theme
-description: Hacker is a theme for GitHub Pages.
-show_downloads: true
-google_analytics:
-theme: jekyll-theme-hacker
+title: Logz theme
+description: Logz theme is a Jekyll theme for GitHub Pages based on the Hacker theme
+remote_theme: 0xherve/logz-theme
+plugins:
+    - jekyll-remote-theme

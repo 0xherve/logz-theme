@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
+# Based on the Hacker theme from https://github.com/pages-themes/hacker
+
 Gem::Specification.new do |s|
-  s.name          = "jekyll-theme-hacker"
-  s.version       = "0.2.0"
-  s.license       = "CC0-1.0"
-  s.authors       = ["Jason Costello", "GitHub, Inc."]
-  s.email         = ["opensource+jekyll-theme-hacker@github.com"]
-  s.homepage      = "https://github.com/pages-themes/hacker"
-  s.summary       = "Hacker is a Jekyll theme for GitHub Pages"
+  s.name          = "jekyll-theme-logz"
+  s.version       = "0.1.0"
+  s.license       = "MIT"
+  s.homepage      = "https://github.com/0xherve/logz-theme"
+  s.summary       = "Logz: Terminal-inspired Jekyll theme with dark vibe and green accents"
 
   s.files         = `git ls-files -z`.split("\x0").select do |f|
     f.match(%r{^((_includes|_layouts|_sass|assets)/|(LICENSE|README)((\.(txt|md|markdown)|$)))}i)
   end
 
-  s.required_ruby_version = ">= 2.4.0"
+  s.required_ruby_version = ">= 2.5.0"
 
   s.platform = Gem::Platform::RUBY
-  s.add_runtime_dependency "jekyll", "> 3.5", "< 5.0"
+  s.add_runtime_dependency "jekyll", "> 4.0", "< 5.0"
   s.add_runtime_dependency "jekyll-seo-tag", "~> 2.0"
   s.add_development_dependency "html-proofer", "~> 3.0"
   s.add_development_dependency "rubocop-github", "~> 0.16"
